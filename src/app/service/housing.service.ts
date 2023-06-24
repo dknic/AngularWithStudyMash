@@ -12,12 +12,13 @@ export class HousingService {
   constructor(private http:HttpClient) { }
 
   getallproperties(){
-    return this.http.get('Data/properties.json').pipe(
+    return this.http.get('Data/properties.json')
+    .pipe(
       map(data=>{
-        const propertiesArray: Array<iproperty>= [] ;
+        const propertiesArray: Array<any>= [] ;
         for(const id in data){
           if(data.hasOwnProperty(id)){
-            propertiesArray.push(data[id]);
+           propertiesArray.push(data[id]);
           }
         }
         return propertiesArray
