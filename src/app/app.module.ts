@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   {path: 'rent-property', component: PropertyListComponent},
   {path: 'add-property', component: AddPropertyComponent},
   {path: 'property-detail/:id', component: PropertyDetailComponent},
-
+ {path:'**',component:PropertyListComponent}// use when no url matching
 ];
 
 @NgModule({

@@ -2,37 +2,49 @@
   {
     "Id":1,
    "Name":"Property1",
+   "Sellrent":1,
    "price":12000,
-   "type":"house"
+   "type":"house",
+   "Image":"prop-1"
   },
   {
     "Id":2,
    "Name":"Property2",
+   "Sellrent":1,
    "price":15000,
-   "type":"villa"
+   "type":"villa",
+   "Image":"prop-2"
   },
   {
     "Id":3,
    "Name":"Property3",
+   "Sellrent":2,
    "price":12000,
-   "type":"house"
+   "type":"house",
+   "Image":"prop-3"
   },
   {
     "Id":4,
    "Name":"Property4",
+   "Sellrent":2,
    "price":18000,
-   "type":"house"
+   "type":"house",
+   "Image":"prop-4"
   },
   {
     "Id":5,
    "Name":"Property5",
+   "Sellrent":2,
    "price":17000,
-   "type":"house"
+   "type":"house",
+   "Image":"prop-5"
   },
   {
     "Id":6,
    "Name":"Property6",
+   "Sellrent":1,
    "price":14000,
-   "type":"villa"
+   "type":"villa",
+   "Image":"house"
   }
 ]

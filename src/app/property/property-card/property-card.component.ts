@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { iproperty } from '../iproperty.interface';
 
 @Component({
   selector: 'app-property-card',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class PropertyCardComponent {
 
-  @Input() property:any;
+  @Input() property:iproperty;
 
 
 }
