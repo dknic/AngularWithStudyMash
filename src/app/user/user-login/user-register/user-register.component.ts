@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import { User } from 'src/app/model/user';
+import * as alertify from 'alertifyjs'
+import { AlertifyService } from 'src/app/service/alertify.service';
 
 @Component({
   selector: 'app-user-register',
@@ -13,7 +15,7 @@ export class UserRegisterComponent implements OnInit {
 
  user:User
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private alertify:AlertifyService) { }
 
   ngOnInit() {
    /* this.registrationform= new FormGroup({
@@ -70,10 +72,14 @@ export class UserRegisterComponent implements OnInit {
     localStorage.setItem('Users',JSON.stringify(this.user))// conver json into string
     this.registrationform.reset();
     this.usersubmitted=false;
+    this.alertify.success("Congrats data has been saved succssfully")
+
+  }else{
+    this.alertify.Error('provide required details');
   }
   }
 
-  
+
 
  /* adduser(user:User){
 
