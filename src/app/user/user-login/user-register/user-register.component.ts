@@ -27,11 +27,11 @@ export class UserRegisterComponent implements OnInit {
     } );*/
     this.createUserRegistration();
   }
-
+// costom type validation
   passwordMatchingValidator(fg:FormGroup):Validators{
     return fg.get('password')?.value=== fg.get('confirmpassword')?.value ?true:{notmatched:true}
   }
-
+// create form group
   createUserRegistration(){
     this.registrationform=this.fb.group({
       userName:new FormControl(null,Validators.required),
@@ -63,12 +63,13 @@ export class UserRegisterComponent implements OnInit {
   get password(){
     return this.registrationform.get('password') as FormControl
   }
-
+// save data on local storage
   onSubmit(){
     this.usersubmitted=true
     if(this.registrationform.valid){
     console.log(this.registrationform)
     this.user=Object.assign(this.user,this.registrationform.value);
+   // this.adduser;
     localStorage.setItem('Users',JSON.stringify(this.user))// conver json into string
     this.registrationform.reset();
     this.usersubmitted=false;
@@ -81,17 +82,17 @@ export class UserRegisterComponent implements OnInit {
 
 
 
- /* adduser(user:User){
+  /*adduser(user:any){
 
-    let users=[];
 
+    let users = [];
     if (localStorage.getItem('Users')){
-      users=JSON.parse(localStorage.getItem('Users'));// convert string into json
+      users=JSON.parse(localStorage.getItem('Users')as string);// convert string into json
       users=[user,...users];
     } else {
       users=[user];
     }
-    localStorage.setItem('Users',JSON.stringify(this.users))// conver json into string
+   localStorage.setItem('Users',JSON.stringify(users))// conver json into string
   }*/
 
 }
