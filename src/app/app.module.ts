@@ -17,6 +17,8 @@ import { UserService } from './service/user.service';
 import { AlertifyService } from './service/alertify.service';
 import { AuthService } from './service/auth.service';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 const appRoutes: Routes = [
   {path: '', component: PropertyListComponent},
   {path: 'rent-property', component: PropertyListComponent},
@@ -47,7 +49,10 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    ButtonsModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+
 
   ],
   providers: [

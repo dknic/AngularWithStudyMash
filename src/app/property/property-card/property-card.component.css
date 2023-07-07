@@ -36,6 +36,14 @@ position: relative;
   transition: all 0.5s ease-in-out;
 }
 
+.card-body h1{
+font-family: fantasy;
+color:#0069d9;
+}
+.font-highlight{
+  font-style: italic;
+  color: red;
+}
 
 
 
