@@ -17,6 +17,15 @@ export class HousingService {
     .pipe(
       map(data=>{
         const propertiesArray: Array<IpropertyBase>= [] ;
+        const localProperties = JSON.parse(localStorage.getItem('newProp')as string);
+         console.log(localProperties);
+        if (localProperties) {
+          for (const id in localProperties) { 
+            if (localProperties.hasOwnProperty(id) && localProperties[id].SellRent === Sellrent) {
+              propertiesArray.push(localProperties[id]);
+            }
+          }
+        }
         for(const id in data){
           if(data.hasOwnProperty(id)&& data[id].SellRent===Sellrent){
            propertiesArray.push(data[id]);
@@ -27,7 +36,17 @@ export class HousingService {
     );
   }
   addProperty(property: property) {
-    localStorage.setItem('newProp', JSON.stringify(property));
+    //localStorage.setItem('newProp', JSON.stringify(property));
+    let newProp = [property];
+    //const newProperty = Object.entries(JSON.parse(localStorage.getItem('newProp')as string));
+  //  console.log(newProperty);
+    // Add new property in array if newProp alreay exists in local storage
+   if (localStorage.getItem('newProp')) {
+      newProp = [property,
+                  ...JSON.parse(localStorage.getItem('newProp')as string)];
+    }
+
+    localStorage.setItem('newProp', JSON.stringify(newProp||{}));
   }
 
   newPropID() {

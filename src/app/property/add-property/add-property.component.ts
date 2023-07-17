@@ -245,7 +245,7 @@ this.CreateAddPropertyForm();
       this.mapProperty();
       this.housingservice.addProperty(this.property)
     this.nextClicked=true
-    this.alertify.success('Please review the form and provide all valid entries');
+    this.alertify.success('Record has been saved successfully');
     if (this.SellRent.value==='2'){
       this.route.navigate(['/rent-property'])
     }else{
