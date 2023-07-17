@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { IpropertyBase } from '../model/IpropertyBase';
+import { property } from '../model/property';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +26,18 @@ export class HousingService {
       })
     );
   }
+  addProperty(property: property) {
+    localStorage.setItem('newProp', JSON.stringify(property));
+  }
+
+  newPropID() {
+    if (localStorage.getItem('PID')) {
+      localStorage.setItem('PID', String(Number(localStorage.getItem('PID')) + 1));
+      return Number(localStorage.getItem('PID'));
+    } else {
+      localStorage.setItem('PID', '101');
+      return 101;
+    }
+  }
+
 }
