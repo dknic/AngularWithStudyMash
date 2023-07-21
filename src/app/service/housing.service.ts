@@ -20,6 +20,10 @@ export class HousingService {
     );
   }
 
+  getAllCities(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:5261/api/CityList');
+}
+
   getallproperties(Sellrent?:number):Observable<IpropertyBase[]>{
     return this.http.get('Data/properties.json')
     .pipe(

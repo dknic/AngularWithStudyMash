@@ -21,6 +21,7 @@ export class AddPropertyComponent implements OnInit {
   fFacing:Array<string>=['East','West','North','South']
   hideicontrue:boolean=true;
   nextClicked: boolean;
+  citilist:string[];
   propertyview:IpropertyBase={
     Id: 0,
     Name: '',
@@ -179,6 +180,11 @@ export class AddPropertyComponent implements OnInit {
 //#endregion
   ngOnInit() {
 this.CreateAddPropertyForm();
+
+this.housingservice.getAllCities().subscribe(data=>{
+ this.citilist=data;
+  console.log(this.citilist);
+})
   }
   onBack(){
     this.route.navigate(['/'])
